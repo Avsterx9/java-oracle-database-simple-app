@@ -1,0 +1,22 @@
+.button{
+    -fx-background-color: #1C2541;
+}
+.button:hover{
+    -fx-background-color: #2baaff;
+}
+
+.button:pressed{
+    -fx-background-color: #0B132B;
+}
+
+.tablebutton{
+    -fx-background-color: #2baaff;
+}
+
+.tablebutton:hover{
+    -fx-background-color: #1C2541;
+}
+
+.tablebutton:pressed{
+    -fx-background-color: #0B132B;
+}

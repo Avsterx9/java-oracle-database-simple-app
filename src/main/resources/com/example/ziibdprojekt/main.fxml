@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ziibdprojekt.controllers.MainController">
+   <children>
+      <VBox prefHeight="700.0" prefWidth="222.0" style="-fx-background-color: #1C2541;">
+         <children>
+            <Pane prefHeight="139.0" prefWidth="222.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="52.0" layoutX="54.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../mslogo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="110.0" layoutY="45.0" text="EMS" textFill="#2baaff">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="110.0" layoutY="75.0" text="ZIIBD 2021" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Button fx:id="goToEmployeesTableBtn" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#menuButtonClicked" prefHeight="42.0" prefWidth="220.0" stylesheets="@../../../stylesheets/mainstyles.css" text="Pracownicy" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../employees.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="224.0" prefHeight="700.0" prefWidth="976.0">
+         <children>
+            <Pane prefHeight="80.0" prefWidth="780.0" style="-fx-background-color: #2baaff;">
+               <children>
+                  <Label fx:id="headerLabel" layoutX="14.0" layoutY="12.0" text="Pracownicy" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <StackPane>
+               <children>
+                  <GridPane fx:id="mainGridPane" disable="true" prefHeight="666.0" prefWidth="976.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="308.0" fitWidth="379.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../mslogo.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets left="300.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="employeesGridPane" prefHeight="666.0" prefWidth="976.0" visible="false">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TableView fx:id="employeesTableView" prefHeight="600.0" prefWidth="976.0" stylesheets="@../../../stylesheets/mainstyles.css" GridPane.rowIndex="1">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <HBox alignment="CENTER_LEFT" prefHeight="121.0" prefWidth="976.0" spacing="5.0">
+                           <children>
+                              <Button fx:id="addEmployeeBtn" cache="true" graphicTextGap="15.0" mnemonicParsing="false" onAction="#menuButtonClicked" prefWidth="240.0" styleClass="tablebutton" stylesheets="@../../../stylesheets/mainstyles.css" text="Dodaj" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../employee.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="deleteEmployeeBtn" cache="true" mnemonicParsing="false" onAction="#menuButtonClicked" prefWidth="240.0" styleClass="tablebutton" stylesheets="@../../../stylesheets/mainstyles.css" text="Usuń" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../del_emplo.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="editEmployeeBtn" cache="true" mnemonicParsing="false" onAction="#menuButtonClicked" prefWidth="240.0" styleClass="tablebutton" stylesheets="@../../../stylesheets/mainstyles.css" text="Aktualizuj" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../update_emp.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="refreshButton" cache="true" graphicTextGap="5.0" mnemonicParsing="false" onAction="#menuButtonClicked" prefHeight="33.0" prefWidth="240.0" styleClass="tablebutton" stylesheets="@../../../stylesheets/mainstyles.css" text="Odśwież" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="departmentsGridPane" prefHeight="666.0" prefWidth="976.0" visible="false">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="121.0" prefWidth="976.0" spacing="5.0" />
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="addEmployeeGridPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="666.0" prefWidth="976.0" visible="false" StackPane.alignment="TOP_CENTER">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0">
+                           <children>
+                              <Label text="ID" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="idTextField" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Imię" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nameTextField" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Nazwisko" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="lastnameTextField" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="3">
+                           <children>
+                              <Label text="Email" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="emailTextField" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="4">
+                           <children>
+                              <Label text="Numer Telefonu" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="phoneNumberTextField" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="5">
+                           <children>
+                              <Label text="Data" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="428.0" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="6">
+                           <children>
+                              <Label text="Pensja" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="salaryTextField" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="7">
+                           <children>
+                              <Label text="ID stanowiska" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="jobIdTextField" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label text="Commission PCT" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="commissionTextField" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="ID Managera" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="managerIdTextField" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="ID Departamentu" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="departmentIdTextField" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <Pane prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <Button fx:id="submitEmployeeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addEmployeeButtonClicked" prefHeight="30.0" prefWidth="428.0" styleClass="tablebutton" stylesheets="@../../../stylesheets/mainstyles.css" text="Dodaj" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                           </GridPane.margin>
+                        </Pane>
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="updateEmployeeGridPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="666.0" prefWidth="976.0" visible="false">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="581.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0">
+                           <children>
+                              <Label text="ID" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="idTextFieldUpd" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Imię" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nameTextFieldUpd" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Nazwisko" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="lastnameTextFieldUpd" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="3">
+                           <children>
+                              <Label text="Email" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="emailTextFieldUpd" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="4">
+                           <children>
+                              <Label text="Numer Telefonu" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="phoneNumberTextFieldUpd" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="5">
+                           <children>
+                              <Label text="Data" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="datePickerUpd" prefHeight="25.0" prefWidth="428.0" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="6">
+                           <children>
+                              <Label text="Pensja" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="salaryTextFieldUpd" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="7">
+                           <children>
+                              <Label text="ID stanowiska" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="jobIdTextFieldUpd" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label text="Commission PCT" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="commissionTextFieldUpd" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="ID Managera" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="managerIdTextFieldUpd" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="ID Departamentu" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="departmentIdTextFieldUpd" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
+                        </VBox>
+                        <Pane prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <Button fx:id="updateEmployeeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updateEmployeeButtonClicked" prefHeight="30.0" prefWidth="428.0" styleClass="tablebutton" stylesheets="@../../../stylesheets/mainstyles.css" text="Aktualizuj" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                           </GridPane.margin>
+                        </Pane>
+                     </children>
+                  </GridPane>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
